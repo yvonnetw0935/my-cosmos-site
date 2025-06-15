@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>首頁｜小宇宙生活誌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+ <style>
+ .menu-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+  .pet-preview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+  }
+
+  .preview-card {
+    width: 220px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease;
+  }
+
+  .preview-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .preview-card p {
+    margin-top: 10px;
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  /* ⭐️ 加上這段就是手機響應式重點 */
+  @media screen and (max-width: 600px) {
+    .pet-preview {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .preview-card {
+      width: 90%;
+    }
+
+    .preview-card img {
+      height: auto;
+    }
+  }
+</style>
+
+</head>
+
+<body>
+  <header>
+    <div class="hero-cover">
+      <h1 class="main-title">歡迎來到<br>我的小宇宙生活誌</h1>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <button class="menu-button orange" onclick="showPage('animal')">動物星球</button>
+    <button class="menu-button green" onclick="showPage('plant')">植物星球</button>
+    <button class="menu-button purple" onclick="showPage('create')">創作星球</button>
+    <button class="menu-button pink" onclick="showPage('diary')">星際日記</button>
+    <button class="menu-button gray" onclick="showPage('core')">母星影片</button>
+    <button class="menu-button" style="background-color: #8bd4f2;" onclick="showPage('contact')">聯絡留言</button>
+
+  </nav>
+
+ <!-- 動物星球 -->
+<section id="animal" class="content-page animal-bg active">
+  <section class="home-pets-preview">
+    <h2>🐾 我的寵物們</h2>
+    <div class="pet-preview">
+      <div class="preview-card" onclick="openLightbox('綠綠（爸爸）', 'images/綠綠3.jpg', '牡丹鸚鵡，2.5歲，個性溫和、會撒嬌，喜歡站在肩膀上。')">
+        <img src="images/綠綠3.jpg" alt="綠綠">
+        <p>綠綠（爸爸）</p>
+      </div>
+      <div class="preview-card" onclick="openLightbox('紫頭（媽媽）', 'images/紫頭綠綠1.jpg', '牡丹鸚鵡，3歲，紫色頭的媽媽，個性穩重有點酷。')">
+        <img src="images/紫頭綠綠1.jpg" alt="紫頭">
+        <p>紫頭（媽媽）</p>
+      </div>
+      <div class="preview-card" onclick="openLightbox('青青（兒子1）', 'images/青青白白1.jpg', '綠綠與紫頭的孩子之一，愛跳來跳去。')">
+        <img src="images/青青白白1.jpg" alt="青青與白白">
+        <p>青青（兒子1）</p>
+      </div>
+      <div class="preview-card" onclick="openLightbox('白白（兒子2）', 'images/白白2.jpg', '另一隻寶寶白白，羽毛潔白，是家中開朗的成員。')">
+        <img src="images/白白2.jpg" alt="白白">
+        <p>白白（兒子2）</p>
+      </div>
+      <div class="preview-card" onclick="openLightbox('四指陸龜', 'images/龜4.jpg', '10歲的四指陸龜，喜歡曬太陽與吃地瓜葉。')">
+        <img src="images/龜4.jpg" alt="四指陸龜">
+        <p>四指陸龜</p>
+      </div>
+      <div class="preview-card" onclick="openLightbox('錦鯉群', 'images/魚1.jpg', '家中後院的七隻玉如意錦鯉，每天優雅游來游去。')">
+        <img src="images/魚1.jpg" alt="錦鯉群">
+        <p>錦鯉群</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+
+
+<!-- 🌿 植物星球 -->
+<section id="plant" class="content-page plant-bg">
+  <h2>🌿 植物星球</h2>
+  <p>這裡是我與植物們的秘密花園。它們靜靜陪著我，也讓日子變得柔軟。</p>
+
+  <div class="pet-preview">
+    <div class="preview-card" onclick="openLightbox('多肉寶寶 A', 'images/多肉1.jpg', '這是我第一盆種植的多肉植物，很會吸水，也讓我開始愛上園藝。')">
+      <img src="images/多肉1.jpg" alt="多肉植物1">
+      <p>多肉寶寶 A</p>
+    </div>
+    <div class="preview-card" onclick="openLightbox('多肉寶寶 B', 'images/多肉2.jpg', '葉片圓潤可愛，總讓人心情好。')">
+      <img src="images/多肉2.jpg" alt="多肉植物2">
+      <p>多肉寶寶 B</p>
+    </div>
+    <div class="preview-card" onclick="openLightbox('多肉寶寶 C', 'images/多肉3.jpg', '放在窗邊，每天看它長大是件幸福的事。')">
+      <img src="images/多肉3.jpg" alt="多肉植物3">
+      <p>多肉寶寶 C</p>
+    </div>
+    <div class="preview-card" onclick="openLightbox('陽台草莓', 'images/草莓1.jpg', '這是我親手種出的第一顆紅草莓，超級開心！')">
+      <img src="images/草莓1.jpg" alt="草莓">
+      <p>陽台草莓</p>
+    </div>
+    <div class="preview-card" onclick="openLightbox('鹿角蕨 A', 'images/鹿角蕨1.jpg', '喜歡它像麋鹿角的造型，是非常療癒的植物。')">
+      <img src="images/鹿角蕨1.jpg" alt="鹿角蕨1">
+      <p>鹿角蕨 A</p>
+    </div>
+    <div class="preview-card" onclick="openLightbox('鹿角蕨 B', 'images/鹿角蕨2.jpg', '掛在牆上像一幅自然畫。')">
+      <img src="images/鹿角蕨2.jpg" alt="鹿角蕨2">
+      <p>鹿角蕨 B</p>
+    </div>
+    <div class="preview-card" onclick="openLightbox('玫瑰 A', 'images/玫瑰1.jpg', '夏天盛開的玫瑰，每一朵都有不同香味。')">
+      <img src="images/玫瑰1.jpg" alt="玫瑰1">
+      <p>玫瑰 A</p>
+    </div>
+    <div class="preview-card" onclick="openLightbox('玫瑰 B', 'images/玫瑰2.jpg', '喜歡這顏色柔和的玫瑰，像午後的陽光。')">
+      <img src="images/玫瑰2.jpg" alt="玫瑰2">
+      <p>玫瑰 B</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 🎨 創作星球 -->
+<section id="create" class="content-page create-bg">
+  <h2>🎨 創作星球</h2>
+  <p>歡迎來到我的創作空間。這裡收藏著我在課堂與生活中完成的作品，無論是人像、水彩、壓克力還是雕刻，都是我用心留下的足跡。</p>
+
+  <div class="pet-preview">
+
+    <div class="preview-card" onclick="openLightbox('小品水彩', 'images/水彩1.jpg', '這是課堂上的水彩小練習，色彩表現柔和。')">
+      <img src="images/水彩1.jpg" alt="水彩">
+      <p>小品水彩</p>
+    </div>
+
+    <div class="preview-card" onclick="openLightbox('馬賽克自畫像', 'images/人像2.jpg', '結合幾何與色塊，畫出內在的自己。')">
+      <img src="images/人像2.jpg" alt="人像">
+      <p>馬賽克自畫像</p>
+    </div>
+
+    <div class="preview-card" onclick="openLightbox('石膏浮雕練習', 'images/石膏雕刻1.jpg', '用雕刻刀慢慢雕出線條與立體感。')">
+      <img src="images/石膏雕刻1.jpg" alt="石膏雕刻">
+      <p>石膏浮雕練習</p>
+    </div>
+
+    <div class="preview-card" onclick="openLightbox('老宅壓克力風景', 'images/壓克力1.jpg', '紀錄一間老屋在陽光下的安靜模樣。')">
+      <img src="images/壓克力1.jpg" alt="壓克力創作1">
+      <p>老宅壓克力風景</p>
+    </div>
+
+    <div class="preview-card" onclick="openLightbox('舊城街道系列', 'images/壓克力2.jpg', '色塊與筆觸描繪出城市的紋理與節奏。')">
+      <img src="images/壓克力2.jpg" alt="壓克力創作2">
+      <p>舊城街道系列</p>
+    </div>
+
+    <div class="preview-card" onclick="openLightbox('水墨 京都友誼', 'images/水墨2.jpg', '朋友送的畫材，在京都旅途中留下紀念。')">
+      <img src="images/水墨2.jpg" alt="水墨">
+      <p>水墨 京都友誼</p>
+    </div>
+
+    <div class="preview-card" onclick="openLightbox('畢展水彩', 'images/水彩2.jpg', '這是我參與畢業展的一幅作品。')">
+      <img src="images/水彩2.jpg" alt="水彩">
+      <p>畢展水彩</p>
+    </div>
+
+    <div class="preview-card" onclick="openLightbox('黛安娜王妃', 'images/人像1.jpg', '描繪她優雅眼神中藏著的堅定與柔情。')">
+      <img src="images/人像1.jpg" alt="人像">
+      <p>黛安娜王妃</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="core" class="content-page core-bg">
+  <h2>🌍 母星影片</h2>
+  <p>這裡收藏著屬於我和家中寵物最溫暖的片刻。</p>
+
+  <div style="margin-bottom: 30px;">
+    <video width="640" height="360" controls>
+      <source src="images/全家.mp4" type="video/mp4">
+      您的瀏覽器不支援影片播放。
+    </video>
+    <p>📹 全家影片 1</p>
+  </div>
+
+  <div>
+    <video width="640" height="360" controls>
+      <source src="images/全家2.mp4" type="video/mp4">
+      您的瀏覽器不支援影片播放。
+    </video>
+    <p>📹 全家影片 2</p>
+  </div>
+</section>
+
+
+ <section id="contact" class="content-page contact-bg">
+  <h2>📬 聯絡留言</h2>
+  <p>有任何想對我說的話，歡迎留言給我！</p>
+
+ <form onsubmit="handleSubmit(event)" style="max-width: 500px; margin: auto; text-align: left;">
+
+    <label for="name">姓名：</label><br>
+    <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; margin-bottom: 10px;"><br>
+
+    <label for="email">電子信箱：</label><br>
+    <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; margin-bottom: 10px;"><br>
+
+    <label for="message">留言內容：</label><br>
+    <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 10px; margin-bottom: 15px;"></textarea><br>
+
+    <button type="submit" style="padding: 10px 20px; background-color: #8bd4f2; border: none; border-radius: 5px; font-weight: bold;">送出</button>
+  </form>
+</section>
+
+<button id="backToTop" onclick="scrollToTop()">⬆ 回到頂端</button>
+<button onclick="toggleMusic()">🎵 背景音樂 開關</button>
+
+<script>
+  const music = document.getElementById('bg-music');
+
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+  }
+</script>
+
+
+  <footer>
+    <p>© 2025 小宇宙生活誌｜設計者 Yvonne</p>
+  </footer>
+
+ <script>
+  function showPage(id) {
+    const pages = document.querySelectorAll('.content-page');
+    pages.forEach(p => p.classList.remove('active'));
+    const target = document.getElementById(id);
+    if (target) {
+      target.classList.add('active');
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+window.addEventListener('scroll', function () {
+  const btn = document.getElementById('backToTop');
+  if (window.scrollY > 300) {
+    btn.style.display = 'block';
+  } else {
+    btn.style.display = 'none';
+  }
+});
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+</script>
+<!-- 感謝訊息彈出框 -->
+<div id="thankYouMessage" style="
+  display: none;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fffbe6;
+  border: 2px solid #ffd28f;
+  border-radius: 10px;
+  padding: 20px 30px;
+  font-size: 1.2em;
+  color: #4c6e70;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  z-index: 9999;
+  text-align: center;
+">
+  🎉 感謝你的留言！
+</div>
+
+<audio id="bg-music" src="images/music.mp3" autoplay loop style="display: none;"></audio>
+
+<script>
+  const music = document.getElementById('bg-music');
+
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+    } else {
+      music.pause();
+    }
+  }
+</script>
+<!-- Lightbox 彈出視窗 -->
+  <div id="lightboxOverlay" style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  ">
+    <div class="lightbox-content" onclick="event.stopPropagation()" style="
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 90%;
+      max-height: 90%;
+      overflow-y: auto;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      animation: fadeIn 0.3s ease-in-out;
+    ">
+      <img id="lightboxImage" src="" alt="大圖" style="max-width: 100%; border-radius: 10px;">
+      <h3 id="lightboxTitle" style="margin-top: 15px;"></h3>
+      <p id="lightboxDesc" style="color: #555;"></p>
+      <button onclick="closeLightbox()" style="
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #ffcccb;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+      ">關閉</button>
+    </div>
+  </div>
+
+  <script>
+    function openLightbox(title, imgSrc, description) {
+      document.getElementById('lightboxImage').src = imgSrc;
+      document.getElementById('lightboxTitle').textContent = title;
+      document.getElementById('lightboxDesc').textContent = description;
+      document.getElementById('lightboxOverlay').style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxOverlay').style.display = 'none';
+    }
+  </script>
+
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</body>
+</html>
